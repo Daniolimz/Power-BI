@@ -1,0 +1,69 @@
+linguagem DAX do power BI
+- medida
+
+Movimentações = CALCULATE (
+    COUNTROWS ( Tb_contratacoes ),
+    Tb_contratacoes[Status] <> "Ativo"
+)
+
+- Quero um codigo que se o resultado for 0 aparecer " " ao em vez do erro (em branco)
+
+*********************
+
+Movimentações = 
+IF(
+    CALCULATE(COUNTROWS(Tb_contratacoes), Tb_contratacoes[Status] <> "Ativo") = 0, 
+    0, 
+    CALCULATE(COUNTROWS(Tb_contratacoes), Tb_contratacoes[Status] <> "Ativo")
+)
+
+
+=====================================
+
+linguagem DAX do power BI
+- medida
+
+Absenteismo = CALCULATE (
+    COUNT ( Tb_contratacoes[NomeColaboradores] )
+        * SUM ( Tb_contratacoes[Faltas] )
+        / (
+            COUNT ( Tb_contratacoes[NomeColaboradores] ) * 20
+        ),
+    Tb_contratacoes[MotivoSaida] = "Continua Empregado"
+)
+
+- Quero um codigo em que , caso o resultado for igual a zero retornar 0
+
+
+**************************
+
+Absenteismo = 
+VAR resultado = CALCULATE (
+    COUNT(Tb_contratacoes[NomeColaboradores]) * SUM(Tb_contratacoes[Faltas]) / 
+    (COUNT(Tb_contratacoes[NomeColaboradores]) * 20),
+    Tb_contratacoes[MotivoSaida] = "Continua Empregado"
+)
+RETURN
+IF(resultado = 0, 0, resultado)
+
+===========================
+
+linguagem DAX do power BI
+- medida
+
+TurnoverGeral = DIVIDE (
+    ( [Admissoes] + [Movimentações] ) / 2,
+    [ColaboradoresAtivos]
+)
+
+- Quero um codigo em que , caso o resultado for igual a zero retornar 0
+
+******************
+
+TurnoverGeral = 
+VAR resultado = DIVIDE(
+    ([Admissoes] + [Movimentações]) / 2,
+    [ColaboradoresAtivos]
+)
+RETURN
+IF(ISBLANK(resultado), 0, resultado)
