@@ -2,6 +2,7 @@
 Dashboards elaborados com foco em estudos na ferramenta Power BI, visando construir um portfólio com cenários reais do dia a dia:
 
 ## **Dashboard de Vendas**
+
 ![til](https://github.com/Daniolimz/PowerBI/blob/main/Dashboard%20vendas%20Estrela/Imagens/Dashboar%20vendas.gif)
 
 
