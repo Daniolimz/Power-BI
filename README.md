@@ -21,7 +21,7 @@ Este repositório centraliza projetos desenvolvidos para auxiliar na análise e 
 - **Automação de Relatórios**: Atualização automática de relatórios com base em dados dinâmicos.
 - **Dashboards Interativos**: Visualizações que permitem análise rápida de tendências e padrões.
 - **Modelagem de Dados**: Estruturação de dados para consultas eficientes e consistentes.
-- **ETL e Power Query**: Processamento de dados para transformação, limpeza e agregação.
+- ** Power Query**: Processamento de dados para transformação, limpeza e agregação.
 - **Uso de DAX**: Criação de cálculos personalizados para análises aprofundadas.
 
 ## Projetos
